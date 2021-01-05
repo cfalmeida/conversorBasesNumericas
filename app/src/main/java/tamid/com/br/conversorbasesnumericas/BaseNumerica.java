@@ -13,7 +13,7 @@ public class BaseNumerica {
         int potencia = 0;
         long somaInteira = 0;
         for (int i = binarioParaDecimal.length() - 1; i >= 0; i--) {
-            int numBinario = Integer.valueOf(String.valueOf(binarioParaDecimal.charAt(i)));
+            int numBinario = Integer.parseInt(String.valueOf(binarioParaDecimal.charAt(i)));
             double numPotencia = numBinario * (Math.pow(2, potencia));
             potencia++;
             soma = soma + numPotencia;
@@ -28,8 +28,10 @@ public class BaseNumerica {
 
         double somaHexa = 0;
         int potenciaHexa = hexaParaDecimal.length() - 1;
-        long somaInteiraHexa = 0;
-        int numHexa = 0;
+        long somaInteiraHexa;
+        int numHexa;
+
+        //variaveis com valores fixos
         final String hexA = "A";
         final String hexB = "B";
         final String hexC = "C";
@@ -40,26 +42,25 @@ public class BaseNumerica {
         System.out.println(potenciaHexa);
         for (int i = 0; i < hexaParaDecimal.length(); i++) {
 
-            if (hexA.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i)))) {
+            if (hexA.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i))))
                 numHexa = 10;
 
-            } else if (hexB.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i)))) {
+            else if (hexB.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i))))
                 numHexa = 11;
 
-            } else if (hexC.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i)))) {
+            else if (hexC.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i))))
                 numHexa = 12;
 
-            } else if (hexD.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i)))) {
+            else if (hexD.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i))))
                 numHexa = 13;
 
-            } else if (hexE.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i)))) {
+            else if (hexE.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i))))
                 numHexa = 14;
-
-            } else if (hexF.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i)))) {
+            else if (hexF.equalsIgnoreCase(String.valueOf(hexaParaDecimal.charAt(i))))
                 numHexa = 15;
 
-            } else {
-                numHexa = Integer.valueOf(String.valueOf(hexaParaDecimal.charAt(i)));
+            else {
+                numHexa = Integer.parseInt(String.valueOf(hexaParaDecimal.charAt(i)));
             }
 
             double numPotenciaHexa = numHexa * (Math.pow(16, potenciaHexa));
@@ -78,13 +79,12 @@ public class BaseNumerica {
         double somaTotalOctal = 0;
 
         for (int i = 0; i < stringOctal.length(); i++) {
-            int numOctal = Integer.valueOf(String.valueOf(stringOctal.charAt(i)));
+            int numOctal = Integer.parseInt(String.valueOf(stringOctal.charAt(i)));
             double somaNumeroOctal = numOctal * (Math.pow(8, indicePotencia));
             somaTotalOctal += somaNumeroOctal;
             indicePotencia--;
         }
-        long somaInteiraOctal = (long) Math.round(somaTotalOctal);
-        return somaInteiraOctal;
+        return (long) Math.round(somaTotalOctal);
 
     }
     //seta o TextView que informa a versao do app
@@ -103,7 +103,7 @@ public class BaseNumerica {
             PackageInfo packageInfo = packageManager.getPackageInfo(act.getPackageName(),0);
             versao = packageInfo.versionName;
         }
-        catch (Exception e){
+        catch (Exception ignored){
 
         }
         return versao;
