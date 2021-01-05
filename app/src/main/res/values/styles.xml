@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <!--style name="AppTheme" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="AppTheme" parent="Theme.AppCompat.Dialog"-->
+        <!-- Customize your theme here. -->
+        <!--item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/imagem_fundo</item-->
+    </style>
+
+</resources>

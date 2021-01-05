@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Conversor Bases Numéricas</string>
+    <string name="textViewDecimal">Decimal</string>
+    <string name="textViewBinario">Binário</string>
+    <string name="textViewOctal">Octal</string>
+    <string name="textViewHexa">Hexadecimal</string>
+    <string name="botaoConverter">Converter</string>
+    <string name="botaoLimpar">Limpar</string>
+    <string name="textViewVersao">Conversor Bases versão</string>
+</resources>
