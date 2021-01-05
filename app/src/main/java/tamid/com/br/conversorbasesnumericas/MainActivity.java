@@ -13,9 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextBinario;
     private EditText editTextHexaDecimal;
     private EditText editTextOctal;
-    private Button botaoConverter;
-    private Button botaoLimpar;
-    private String versao;
 
 
     @Override
@@ -27,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         editTextBinario = findViewById(R.id.editTextBinario);
         editTextHexaDecimal = findViewById(R.id.editTextHexa);
         editTextOctal = findViewById(R.id.editTextOctal);
-        botaoConverter = findViewById(R.id.buttonConverter);
-        botaoLimpar = findViewById(R.id.buttonLimpar);
+        Button botaoConverter = findViewById(R.id.buttonConverter);
+        Button botaoLimpar = findViewById(R.id.buttonLimpar);
 
         botaoConverter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,21 +35,19 @@ public class MainActivity extends AppCompatActivity {
                 String sHexaDecimal = editTextHexaDecimal.getText().toString();
                 String sOctal = editTextOctal.getText().toString();
 
-                long decimal = 0;
-                String binario = "";
-                String hexaDecimal = "";
-                String octal = "";
+                long decimal;
+                String binario;
+                String hexaDecimal;
+                String octal;
 
                 //verifica se existe nenhum campo preenchido
                 if(sDecimal.isEmpty() && sBinario.isEmpty() && sHexaDecimal.isEmpty() &&
-                        sOctal.isEmpty()){
-                    btOnClickDigitarNome();
+                        sOctal.isEmpty()) btOnClickDigitarNome();
 
-                }
                 //verifica se o campo esta preenchido
                 else if(!sDecimal.isEmpty()){
                     //pega a string digitada no campo e a transforma num inteiro
-                    decimal = Long.valueOf(editTextDecimal.getText().toString());
+                    decimal = Long.parseLong(editTextDecimal.getText().toString());
                     //converte o numero decimal em um binário, do tipo string
                     binario = Long.toBinaryString(decimal);
                     //seta a string no campo de binario
@@ -99,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     editTextOctal.setText(octal);
 
                 }
-                else if(!sOctal.isEmpty()){
+                else {
                     //converte o octal do tipo string para um decimal inteiro
                     decimal = BaseNumerica.octaParaDecimal(sOctal);
                     //seta o valor para o campo
